@@ -17,7 +17,7 @@ namespace MyApp
             }
             else
             {
-                Console.WriteLine("nay");
+                if(year >= 1582) Console.WriteLine("nay");
             }
 
         }
@@ -25,7 +25,6 @@ namespace MyApp
         private static int getInput()
         {
             string input = Console.ReadLine();
-
             try
             {
                 int year = Int16.Parse(input);   
@@ -40,6 +39,8 @@ namespace MyApp
         }
         public static bool IsLeapYear(int year)
         {
+            if(year <= 1582) { Console.WriteLine("Too long ago, year must be after 1582."); return false;}
+            
             if (year % 4 == 0)
             {
                 if(year % 100 == 0 && year % 400 != 0)
